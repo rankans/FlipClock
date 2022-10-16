@@ -19,9 +19,9 @@
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 </head>
 
-<body>
-    <div class="main-container d-flex justify-content-center align-items-center">
-        <div class="clock-body d-flex align-items-center justify-content-between">
+<body class="minimal-black">
+    <div class="main-container d-flex justify-content-center align-items-center flex-column">
+        <div class="clock-body d-flex align-items-center justify-content-between flex-lg-row flex-sm-column">
             <div class="d-flex align-items-center justify-content-center w-50 h-100 time-content hour">
                 <h1 id="hour">00</h1>
             </div>
@@ -35,6 +35,16 @@
                 </div>
             </div>
         </div>
+
+        <div class="theme-selector">
+            <img src="icons/Theme Icon.svg" alt="Theme Selector Icon" class="icon-theme">
+            <div class="theme-modal d-none">
+                <p id="theme1">Minimal Black</p>
+                <p id="theme2">Floral</p>
+                <p id="theme3">Gaming</p>
+            </div>
+        </div>
+
     </div>
 
     <script src="script/app.js"></script>
