@@ -8,23 +8,32 @@ var themeModal = jq(".theme-modal")
 var mb = jq("#theme1")
 var fl = jq("#theme2")
 
-iconTheme.on("click", (e)=>{
+iconTheme.on("click", (e) => {
     themeModal.removeClass("d-none")
 });
 
-function showTime(){
+function showTime() {
     var dt = new Date();
-    var hour = String(dt.getHours()-12).padStart(2, '0')
+    var hour = String(Math.abs(dt.getHours() - 12)).padStart(2, '0')
     var minute = String(dt.getMinutes()).padStart(2, '0')
 
     // console.log("TIME UPDATED")
-    jq(document).ready((e) =>{
+    jq(document).ready((e) => {
         hourDiv.text(hour)
         minuteDiv.text(minute)
-        if((hour+12)>=12){
+        if ((hour + 12) >= 12) {
             ap.text("PM")
-        }else{
+            if (hour > 6) {
+                jq("body").removeClass()
+                jq("body").addClass("minimal-black")
+            }
+        } else {
             ap.text("AM")
+            if(hour > 7){
+                jq("body").removeClass()
+                jq("body").addClass("floral")
+            }
+
         }
     })
     // console.log(dt)
@@ -32,14 +41,14 @@ function showTime(){
 
 setInterval(showTime, 1000)
 
-mb.click((e)=>{
+mb.click((e) => {
     console.log("THEME CHANGED")
     jq("body").removeClass()
     jq("body").addClass("minimal-black")
     themeModal.addClass("d-none")
 })
 
-fl.click((e)=>{
+fl.click((e) => {
     console.log("THEME CHANGED")
     jq("body").removeClass()
     jq("body").addClass("floral")
