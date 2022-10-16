@@ -7,6 +7,7 @@ var iconTheme = jq(".icon-theme")
 var themeModal = jq(".theme-modal")
 var mb = jq("#theme1")
 var fl = jq("#theme2")
+var gm = jq("#theme3")
 
 iconTheme.on("click", (e) => {
     themeModal.removeClass("d-none")
@@ -23,16 +24,16 @@ function showTime() {
         minuteDiv.text(minute)
         if ((hour + 12) >= 12) {
             ap.text("PM")
-            if (hour > 6) {
-                jq("body").removeClass()
-                jq("body").addClass("minimal-black")
-            }
+            // if (hour > 6) {
+            //     jq("body").removeClass()
+            //     jq("body").addClass("minimal-black")
+            // }
         } else {
             ap.text("AM")
-            if(hour > 7){
-                jq("body").removeClass()
-                jq("body").addClass("floral")
-            }
+            // if(hour > 7){
+            //     jq("body").removeClass()
+            //     jq("body").addClass("floral")
+            // }
 
         }
     })
@@ -52,5 +53,12 @@ fl.click((e) => {
     console.log("THEME CHANGED")
     jq("body").removeClass()
     jq("body").addClass("floral")
+    themeModal.addClass("d-none")
+})
+
+gm.click((e) => {
+    console.log("THEME CHANGED")
+    jq("body").removeClass()
+    jq("body").addClass("gaming")
     themeModal.addClass("d-none")
 })
